@@ -10,6 +10,7 @@ end
 gem 'rails', '~> 5.0.1'
 # Use pg as the database for Active Record
 gem 'pg'
+gem 'activerecord-postgis-adapter'
 
 gem 'awesome_print'
 gem 'figaro'

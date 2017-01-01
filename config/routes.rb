@@ -1,3 +1,9 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :passengers, only: [:create]
+
+  resources :drivers, only: [:create, :update] do
+    member do
+      post :locations, action: :update_location
+    end
+  end
 end

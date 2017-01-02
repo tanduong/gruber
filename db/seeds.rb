@@ -1,12 +1,26 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'factory_girl'
+# Dir[Rails.root.join('spec', 'factories', '*.rb')].each { |file| require file }
 
-25600.times do
-  FactoryGirl.create(:driver)
+class SeedIt
+  def self.seed_drivers(count=40000)
+    Driver.delete_all
+    ActiveRecord::Base.connection.reset_pk_sequence!('drivers')
+
+    count.times do
+      FactoryGirl.create(:driver)
+    end
+  end
+
+  def self.seed_passengers(count=200000)
+    Passenger.delete_all
+    ActiveRecord::Base.connection.reset_pk_sequence!('passengers')
+
+    count.times do
+      FactoryGirl.create(:passenger)
+    end
+  end
 end
+
+SeedIt.seed_drivers
+SeedIt.seed_passengers
+

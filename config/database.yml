@@ -23,4 +23,6 @@ test:
 
 production:
   <<: *default
+  <% if ENV['DATABASE_URL'] %>
   url: <%= ENV['DATABASE_URL'].sub(/^postgres/, "postgis") %>
+  <% end %>

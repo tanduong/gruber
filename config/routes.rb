@@ -3,7 +3,9 @@ Rails.application.routes.draw do
 
   resources :drivers, only: [:create, :update] do
     member do
-      post :locations, action: :update_location
+      patch :locations, action: :update_location
     end
   end
+
+  resources :requests, only: [:create]
 end

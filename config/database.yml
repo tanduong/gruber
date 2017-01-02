@@ -2,6 +2,7 @@ default: &default
   adapter: postgis
   pool: 5
   encoding: unicode
+  schema_search_path: "public,postgis"
 
 development:
   <<: *default

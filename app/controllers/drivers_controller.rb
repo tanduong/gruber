@@ -9,8 +9,11 @@ class DriversController < ApplicationController
   end
 
   def update_location
-    if @driver.update(update_driver_params)
-      render json: @driver
+    if location = driver_position_params["location"]
+      point = DriverPosition.new location["lng"], location["lat"]
+      if @driver.update(lonlat: point.to_point)
+        render json: @driver
+      end
     end
   end
 
@@ -32,6 +35,12 @@ class DriversController < ApplicationController
       params
         .required(:driver)
         .permit(:state)
+    end
+
+    def driver_position_params
+      params
+        .required(:driver)
+        .permit(location: [:lon, :lat])
     end
 
     def set_driver

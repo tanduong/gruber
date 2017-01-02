@@ -7,6 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'factory_girl'
 
-2500.times do
+25600.times do
   FactoryGirl.create(:driver)
 end

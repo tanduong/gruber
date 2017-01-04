@@ -6,7 +6,10 @@ class RequestsController < ApplicationController
     }
   end
 
-  def update
+  def index
+    render json: {
+      hello: "there"
+    }
   end
 
   private

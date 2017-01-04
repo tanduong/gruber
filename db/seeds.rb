@@ -21,6 +21,9 @@ class SeedIt
   end
 end
 
+puts "This will take a while..."
+
 SeedIt.seed_drivers
 SeedIt.seed_passengers
 
+puts "Done!"

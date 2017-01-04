@@ -12,7 +12,7 @@ class Request
     Driver
       .find_by_sql(<<-SQL
         SELECT * FROM drivers
-        WHERE drivers.state = 1
+        WHERE state = 1
         ORDER BY lonlat <-> st_setsrid(st_makepoint(#{@lng}, #{@lat}), 4326)
         LIMIT 5
       SQL

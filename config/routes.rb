@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :requests, only: [:create]
+  resources :requests, only: [:create, :index]
 end

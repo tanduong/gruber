@@ -4,6 +4,8 @@ FactoryGirl.define do
       "driver #{n}"
     end
 
+    state :available
+
     sequence :lonlat do |n|
       "POINT(#{106.6585 + n/200*(106.7384 - 106.6585)} #{10.7258 + (10.7782 - 10.7258) * (n % 200)})"
     end
